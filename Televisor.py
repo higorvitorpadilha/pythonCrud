@@ -33,3 +33,21 @@ class televisor :
 
         if canal not in self.lista_de_canais:
             self.lista_de_canais.append(canal)
+
+
+class ControleRemoto:
+
+    def __init__(self, tv):
+        self.tv = tv
+
+    def aumentaVolume(self, tv):
+        self.tv = tv
+
+    def diminuiVolume(self):
+        self.tv.dimuiVolume(90)
+
+    def trocaCanal(self, canal):
+        self.tv.trocaCanal(canal)
+
+    def sintonizaCanal(self, canal):
+        self.tv.sintonizacanal(canal)
