@@ -74,3 +74,18 @@ btnDel.grid(row=8, column=0, columnspan=2)
 btnClose.grid(row=9, column=0, columnspan=2)
 
 listClientes.configure(yscrollcommand=scrollClientes.set)
+scrollClientes.configure(command=listClientes.yview)
+
+for child in window.winfo_chilren():
+    widget_class = child._class_._name__
+    if widget_class== "Button":
+        child.grid_configure(sticky='we', padx=0, pady=0)
+    elif widget_class == "Listbox":
+        child.grid_configure(padx=0, pady=0, sticky='NS')
+    elif widget_class=="Scrollbar":
+        child.grid_configure(padx=0, pady=0,sticky='NS')
+    else:
+        child.grid_configure(padx=0, pady=0, sticky='N')
+
+    def run(self):
+            Gui.window.mainloop()
