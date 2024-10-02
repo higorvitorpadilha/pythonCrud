@@ -1,6 +1,5 @@
 import sqlite3 as sql
 
-
 class TransactionObject():
     database = "clientes.db"
     conn = None
@@ -36,6 +35,7 @@ class TransactionObject():
         else:
             return False
 
+    @staticmethod
     def initDB():
         trans = TransactionObject()
         trans.connect()
@@ -44,6 +44,7 @@ class TransactionObject():
         trans.persist()
         trans.disconnect()
 
+    @staticmethod
     def insert(nome, sobrenome, email, cpf):
         trans = TransactionObject()
         trans.connect()
@@ -51,6 +52,7 @@ class TransactionObject():
         trans.persist()
         trans.disconnect()
 
+    @staticmethod
     def view():
         trans = TransactionObject()
         trans.connect()
@@ -59,6 +61,7 @@ class TransactionObject():
         trans.disconnect()
         return rows
 
+    @staticmethod
     def search(nome="", sobrenome="", email="", cpf=""):
         trans = TransactionObject()
         trans.connect()
@@ -68,6 +71,7 @@ class TransactionObject():
         trans.disconnect()
         return rows
 
+    @staticmethod
     def delete(id):
         trans = TransactionObject()
         trans.connect()
@@ -75,6 +79,7 @@ class TransactionObject():
         trans.persist()
         trans.disconnect()
 
+    @staticmethod
     def update(id, nome, sobrenome, email, cpf):
         trans = TransactionObject()
         trans.connect()
@@ -83,5 +88,5 @@ class TransactionObject():
         trans.persist()
         trans.disconnect()
 
-        initDB()
-
+# Inicializa o banco de dados ao iniciar o programa
+TransactionObject.initDB()
